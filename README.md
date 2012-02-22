@@ -4,7 +4,7 @@ Pro tip: Alias `rbenv` to `rvm` to ease transition. The `--global` option is ali
 
 ## Usage examples
 
-Switch current shell to lates stable JRuby:
+Switch current shell to latest stable JRuby:
 
     rbenv use jruby
 
