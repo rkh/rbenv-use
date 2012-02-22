@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -e
+[ -n "$RBENV_DEBUG" ] && set -x
+
+if ! which rbenv-whatis >/dev/null 2>&1; then
+  echo "rbenv-whatis plugin not installed, please run:" >&2
+  echo -e "\n\tgit clone https://github.com/rkh/rbenv-whatis.git $RBENV_ROOT/plugins/rbenv-whatis\n"  >&2
+  exit 1
+fi
+
+case $# in
+  1)
+    if [ $1 = default ]; then
+      _ruby=--unset
+    else
+      _ruby=$1
+    fi
+    _command=shell;;
+  2)
+    _ruby=$1
+    case $2 in
+      --global|-g|--default|-d) _command=global;;
+      --shell|-s)               _command=shell;;
+      --local|-l)               _command=local;;
+    esac;;
+  *)
+    echo "usage: rbenv use NAME [OPTION]" >&2
+    exit 1;;
+esac
+
+_ruby=`command rbenv whatis $_ruby`
+
+if [ $_command = shell ]; then
+  echo `rbenv sh-shell $_ruby`
+else
+  echo "eval `rbenv sh-shell --unset` && command rbenv $_command $_ruby"
+fi
