@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# Usage: rbenv use NAME [--global|--shell|--local]
+#
+# Switches Ruby versions without having to keep patchlevels in mind.
 set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
