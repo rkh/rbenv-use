@@ -12,6 +12,13 @@ if ! which rbenv-whatis >/dev/null 2>&1; then
   exit 1
 fi
 
+# Provide rbenv completions
+if [ "$1" = "--complete" ]; then
+  echo system
+  exec rbenv-versions --bare
+fi
+
+
 case $# in
   1)
     if [ $1 = default ]; then
