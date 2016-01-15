@@ -46,3 +46,4 @@ if [ $_command = shell ]; then
 else
   echo "eval `rbenv sh-shell --unset` && command rbenv $_command $_ruby"
 fi
+echo "rbenv which ruby"
