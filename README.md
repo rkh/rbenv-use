@@ -40,8 +40,8 @@ Use rbx development version:
 
 Run these commands:
 
-    mkdir -p $RBENV_ROOT/plugins
-    git clone https://github.com/rkh/rbenv-whatis.git $RBENV_ROOT/plugins/rbenv-whatis
-    git clone https://github.com/rkh/rbenv-use.git $RBENV_ROOT/plugins/rbenv-use
+    mkdir -p "$(rbenv root)/plugins"
+    git clone https://github.com/rkh/rbenv-whatis.git "$(rbenv root)/plugins/rbenv-whatis"
+    git clone https://github.com/rkh/rbenv-use.git "$(rbenv root)/plugins/rbenv-use"
 
 Skip the first `git clone` if you already installed [rbenv-whatis](https://github.com/rkh/rbenv-whatis).
